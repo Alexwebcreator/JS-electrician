@@ -20,13 +20,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 
 /***/ }),
 
+/***/ "./modules/helpers.js":
+/*!****************************!*\
+  !*** ./modules/helpers.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"animate\": () => (/* binding */ animate)\n/* harmony export */ });\nconst animate = ({timing, draw, duration}) => {\r\n\r\n  let start = performance.now();\r\n\r\n  requestAnimationFrame(function animate(time) {\r\n    // timeFraction изменяется от 0 до 1\r\n    let timeFraction = (time - start) / duration;\r\n    if (timeFraction > 1) timeFraction = 1;\r\n\r\n    // вычисление текущего состояния анимации\r\n    let progress = timing(timeFraction);\r\n\r\n    draw(progress); // отрисовать её\r\n\r\n    if (timeFraction < 1) {\r\n      requestAnimationFrame(animate);\r\n    }\r\n\r\n  });\r\n}\r\n\r\n\n\n//# sourceURL=webpack:///./modules/helpers.js?");
+
+/***/ }),
+
 /***/ "./modules/modal.js":
 /*!**************************!*\
   !*** ./modules/modal.js ***!
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst modal = () => {\r\n  console.log('it works!');\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);\n\n//# sourceURL=webpack:///./modules/modal.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers */ \"./modules/helpers.js\");\n\r\n\r\nconst modal = () => {\r\n\r\n  const callback = document.getElementById('callback');\r\n  const overlay = document.querySelector('.modal-overlay');\r\n  const buttons = document.querySelectorAll('.callback-btn');\r\n  const servicesBtn = document.querySelector('.button-services');\r\n  \r\n  console.log(servicesBtn);\r\n  \r\n  const openCallback = () => {\r\n    callback.style.display = \"block\";\r\n    overlay.style.display = \"block\";\r\n    if (screen.width > 768) {\r\n      (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.animate)({\r\n        duration: 500,\r\n        timing(timeFraction) {\r\n          return timeFraction;\r\n        },\r\n        draw(progress) {\r\n          callback.style.opacity =progress;\r\n          overlay.style.opacity =progress;\r\n        },\r\n      });\r\n    }\r\n  };\r\n\r\n  const closeCallback = () => {\r\n    if (screen.width > 768) {\r\n      (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.animate)({\r\n        duration: 500,\r\n        timing(timeFraction) {\r\n          return 1 - timeFraction;\r\n        },\r\n        draw(progress) {\r\n          callback.style.opacity =progress;\r\n          overlay.style.opacity =progress;\r\n        },\r\n      });\r\n      setTimeout(() => {\r\n        callback.style.display = \"none\";\r\n        callback.style.opacity = \"\";\r\n        overlay.style.display = \"none\";\r\n        overlay.style.opacity = \"\";\r\n      }, 100);\r\n    } else {\r\n      callback.style.display = \"none\";\r\n      callback.style.opacity = \"\";\r\n      overlay.style.display = \"none\";\r\n      overlay.style.opacity = \"\";\r\n    }\r\n  };\r\n\r\n  buttons.forEach((button) => {\r\n    button.addEventListener(\"click\", openCallback);\r\n  });\r\n\r\n  servicesBtn.addEventListener(\"click\", openCallback);\r\n\r\n  callback.addEventListener(\"click\", (e) => {\r\n    if (e.target.closest('.modal-close')) {\r\n      closeCallback();\r\n    }\r\n  });\r\n\r\n  overlay.addEventListener(\"click\", (e) => {\r\n    if (e.target.classList.contains('modal-overlay')) {\r\n      closeCallback();\r\n    }\r\n  });\r\n\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);\n\n//# sourceURL=webpack:///./modules/modal.js?");
 
 /***/ })
 
