@@ -7,8 +7,6 @@ const modal = () => {
   const buttons = document.querySelectorAll('.callback-btn');
   const servicesBtn = document.querySelector('.button-services');
   
-  console.log(servicesBtn);
-  
   const openCallback = () => {
     callback.style.display = "block";
     overlay.style.display = "block";
@@ -53,19 +51,27 @@ const modal = () => {
   };
 
   buttons.forEach((button) => {
-    button.addEventListener("click", openCallback);
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      openCallback();
+    });
   });
 
-  servicesBtn.addEventListener("click", openCallback);
+  servicesBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    openCallback();
+  });
 
   callback.addEventListener("click", (e) => {
     if (e.target.closest('.modal-close')) {
+      e.preventDefault();
       closeCallback();
     }
   });
 
   overlay.addEventListener("click", (e) => {
     if (e.target.classList.contains('modal-overlay')) {
+      e.preventDefault();
       closeCallback();
     }
   });
