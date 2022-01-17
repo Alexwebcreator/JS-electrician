@@ -6,6 +6,7 @@ const modal = () => {
   const overlay = document.querySelector('.modal-overlay');
   const buttons = document.querySelectorAll('.callback-btn');
   const servicesBtn = document.querySelector('.button-services');
+  const carouselBtn = document.querySelectorAll('.absolute');
   
   const openCallback = () => {
     callback.style.display = "block";
@@ -60,6 +61,13 @@ const modal = () => {
   servicesBtn.addEventListener("click", (event) => {
     event.preventDefault();
     openCallback();
+  });
+
+  carouselBtn.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+      openCallback();
+    });
   });
 
   callback.addEventListener("click", (e) => {
