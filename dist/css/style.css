@@ -869,6 +869,7 @@ hr.white {
     margin-bottom: 50px;
   }
   .top-slider .text {
+    max-width: 100%;
     font-size: 18px;
     line-height: 1.6;
   }
@@ -895,6 +896,7 @@ hr.white {
 .top-slider .item {
   overflow: hidden;
   height: 450px;
+  max-width: 100%;
   position: relative;
   display: none;
 }
@@ -914,6 +916,7 @@ hr.white {
 .top-slider .table {
   position: relative;
   z-index: 10;
+  max-width: 100%;
 }
 .video-block {
   height: 100%;
@@ -971,13 +974,20 @@ video#video_background {
 @media only screen and (min-width: 992px) {
   .top-slider .item {
     height: 520px;
+    max-width: 100%;
   }
   .top-slider {
     height: 520px;
   }
+  .top-slider .table-cell {
+    max-width: 100%;
+  }
+  .top-slider .container {
+    max-width: 1240px;
+  }
   .top-slider .table {
-    opacity: 0;
-    visibility: hidden;
+    overflow: hidden;
+    max-width: 100%;
     -webkit-transform: scale(1.5);
     -ms-transform: scale(1.5);
     -o-transform: scale(1.5);
@@ -998,6 +1008,8 @@ video#video_background {
 
 @media only screen and (min-width: 1240px) {
   .top-slider .text {
+    overflow: hidden;
+    max-width: 1240px;
     font-size: 24px;
     line-height: 1.6;
   }
@@ -1006,6 +1018,7 @@ video#video_background {
 @media only screen and (min-width: 1360px) {
   .top-slider .item {
     height: 600px;
+    max-width: 100%;
   }
   .top-slider {
     height: 600px;
