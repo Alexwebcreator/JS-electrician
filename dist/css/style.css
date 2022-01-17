@@ -148,7 +148,7 @@ h4 {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 9;
 }
 .slider-dots .dot {
   cursor: pointer;
