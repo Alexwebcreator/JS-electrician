@@ -3,6 +3,8 @@ const scrollUp = () => {
   const servicesSection = document.querySelector(".services-section");
   const sectionTop = servicesSection.offsetTop;
 
+  upBtn.style.display = "none";
+
   upBtn.addEventListener("click", (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -14,7 +16,15 @@ const scrollUp = () => {
     } else { upBtn.style.display = 'none'; }
   };
 
+  // if (window.pageYOffset === 0) {
+  //   hideBtn();
+  // } else {
+  //   window.onscroll = hideBtn;
+  // }
+
   window.onscroll = hideBtn;
+  // hideBtn();
+  // console.log('scroll');
 
 };
 

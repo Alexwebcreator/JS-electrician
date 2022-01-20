@@ -25,7 +25,7 @@ const sendForm = ({someElem = []}) => {
     list.forEach((input) => {
       switch (input) {
         case name:
-          if (/[^а-я\s\-]+/gi.test(input.value)|| input.value.length < 2) {
+          if (/[^а-я\s\-]+/gi.test(input.value)|| input.value.trim().length < 2) {
             error = true;
             mes("Используйте только кириллицу!", input);
           }
