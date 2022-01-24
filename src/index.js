@@ -5,6 +5,7 @@ import linkScroll from './modules/linkScroll';
 import scrollUp from './modules/scrollUp';
 import accordeon from './modules/accordeon';
 import sendForm from './modules/sendForm';
+import menu from './modules/menu';
 
 modal();
 slider();
@@ -19,3 +20,4 @@ sendForm({
     }
   ] 
 });
+menu();
